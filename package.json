@@ -1,0 +1,18 @@
+{
+  "name": "uploader",
+  "version": "0.0.1",
+  "description": "Timeli CSV uploader",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Timeli Inc.",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.0",
+    "debug": "~2.2.0",
+    "log4js": "^0.6.27"
+  },
+  "dependencies": {
+    "mongodb": "^2.1.16"
+  }
+}

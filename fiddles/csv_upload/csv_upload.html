@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" href="./csv_upload.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+console.log = (function() {
+    var log = console.log;
+    return function() {
+        var str = "";
+        for (var i=0; i<arguments.length; i++) {
+            if (typeof(arguments[i]) != "string")
+                str += JSON.stringify(arguments[i]) + " ";
+            else
+                str += arguments[i] + " ";
+        }
+        window.parent.postMessage(str, "*");
+    }
+})();
+</script>
+</head>
+<body>
+<div class="hidden controls">
+    <select class="asset"></select>
+    <input type="file" class="csv-import"/>
+    <input type="button" class="csv-upload" value="Upload"/>
+    <label><input type="checkbox" class="test-csv-only" checked="checked"/> Test only</label>
+</div>
+<div class="container"></div>
+<script src="./csv_upload.js"></script>
+</body>
+</html>

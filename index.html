@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Timeli CSV Uploader</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./css/colorbox.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sdkrunner.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Timeli</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" class="add-tenant">Add Tenant</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+         <h1 style="text-align:left;width:40%;float:left;">Timeli CSV Uploader</h1>
+         <div class="control">
+             <label style="margin-left:20px;">Select Tenant</label>
+             <select class="select-tenant">
+                 <option value="0">Select Tenant</option>
+             </select>
+             <button class="run-button" style="margin-left:20px;">Run</button>
+         </div>
+         <div id="log" style="float:left;" class="console"><p align="left"></p></div>
+         <div id="fiddle-canvas" class="console hidden"></div>
+      </div>
+    </div><!-- /.container -->
+
+    <div style="display:none;">
+        <div class="add-tenant">
+            <form id="add-tenant">
+                <div style="margin-bottom:20px;">
+                    <h2>Add a new Tenant</h2>
+                </div>
+                <label for="domain">Domain</label><input type="text" name="domain" placeholder="domain"><br>
+                <label for="client">Client</label><input type="text" name="client" placeholder="client"><br>
+                <label for="secret">Secret</label><input type="text" name="secret" placeholder="secret"><br>
+                <label for="redirect_uri">Redirect URI</label><input type="text" name="redirect_uri" placeholder="redirect uri"><br>
+                <label for="scopes">Scopes</label><input type="text" name="scopes" placeholder="scopes"><br>
+                <label for="grant_type">Grant Type</label><input type="text" name="grant_type" placeholder="grant type"><br>
+               <!-- <label for="username">User Name</label><input type="text" name="username" placeholder="username"><br>
+                <label for="password">Password</label><input type="text" name="password" placeholder="password"><br> -->
+                <div style="margin-top:20px">
+                    <button type="submit" class="add-tenant-submit">Add</button>
+                    <button class="xbutton">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="add-fiddle">
+            <form id="add-fiddle">
+                <div style="margin-bottom:20px;">
+                    <h2>Add a new Fiddle</h2>
+                </div>
+                <label for="name">Name</label><input type="text" name="name" placeholder="Name of fiddle"><br>
+                <label for="fiddle_files[]">HTML File</label><input type="file" name="fiddle_files"><br>
+                <label>Javascript File</label><input type="file" name="fiddle_files"><br>
+                <label>CSS File</label><input type="file" name="fiddle_files"><br>
+                <div style="margin-top:20px">
+                    <button type="submit" class="add-fiddle-submit">Add</button>
+                    <button class="xbutton">Cancel</button>
+                </div>
+            </form>
+            <div class="show-message" style="display:none;">
+                <p></p>
+                <button type="submit" class="show-message-ok">OK</button>
+                <button class="xbutton">Cancel</button>
+            </div>
+        </div>
+        <div class="run-tenant">
+            <form id="run-tenant">
+                <div style="margin-bottom:20px;">
+                    <h4>Please provide username and password for tenant:</h4>
+                </div>
+                <label for="username">User Name</label><input type="text" name="username" placeholder="username"><br>
+                <label for="password">Password</label><input type="password" name="password" placeholder="password"><br>
+                <div style="margin-top:20px">
+                    <button type="submit" class="run-tenant-submit">Run</button>
+                    <button class="xbutton">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.$ = window.jQuery = require('./js/jquery-1.11.3-min.js');</script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.colorbox-min.js"></script>
+    <script src="https://demo.timeli.io/static/js/public/sdk.js"></script>
+    <script src="./js/sdkrunner.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+
+  </body>
+</html>
