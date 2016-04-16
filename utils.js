@@ -7,7 +7,7 @@ const fs        = require('fs');
 var crypto      = require('crypto');
 
 
-exports,encodePassword = function(clearPassword, cb) {
+exports.encodePassword = function(clearPassword, cb) {
     var salt = crypto.randomBytes(128).toString('base64');
     var iter = 1000;
     crypto.pbkdf2(clearPassword, salt, iter, 512, function(err, derivedKey) {

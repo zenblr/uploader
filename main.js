@@ -12,10 +12,24 @@ var mainWindow;
 var log4js          = require('./log');
 var logger          = log4js.getLogger("APP", "DEBUG");
 
-var appdb;
+var appdb = null;
 
 require('./db').open(function(db) {
-   appdb = db;
+    appdb = db;
+    appdb.collection('fiddles').updateOne(
+        {
+            "name": "csv_upload",
+        },
+        {
+            $set: {
+                "name": "csv_upload",
+                "html": "csv_upload.html"
+            }
+        },
+        {
+            upsert:true
+        }
+    );
 });
 
 var utils           = require('./utils');
